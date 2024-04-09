@@ -7,6 +7,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+echo "       Starting the Heroku Buildpack Geoip from Easol"
 # see https://devcenter.heroku.com/articles/buildpack-api - during compilation
 # app env vars exist only as files within the ENV_VAR directory
 if [[ -s "$ENV_DIR/MAXMIND_LICENSE_KEY" ]]
