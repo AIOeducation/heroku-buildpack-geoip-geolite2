@@ -46,14 +46,14 @@ mkdir -p "$LIBMAXMINDDB_CACHE_DIST_DIR"
 echo "       Downloading GeoLite2 City and Country data"
 
 if [ "$(cat ${GEOIP_CACHE_VERSION_FILE} 2>/dev/null)" != "${DATE}" ]; then
-  curl -z ${GEOIP_CACHE_DIR}/${GEOLITE2_COUNTRY_TARBALL_FILENAME} -o ${GEOLITE2_COUNTRY_TARBALL_FILENAME} \
+  curl -L -z ${GEOIP_CACHE_DIR}/${GEOLITE2_COUNTRY_TARBALL_FILENAME} -o ${GEOLITE2_COUNTRY_TARBALL_FILENAME} \
     "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
 
   if [ -f "${GEOLITE2_COUNTRY_TARBALL_FILENAME}" ]; then
     mv ${GEOLITE2_COUNTRY_TARBALL_FILENAME} ${GEOIP_CACHE_DIR}/${GEOLITE2_COUNTRY_TARBALL_FILENAME}
   fi
 
-  curl -z ${GEOIP_CACHE_DIR}/${GEOLITE2_CITY_TARBALL_FILENAME} -o ${GEOLITE2_CITY_TARBALL_FILENAME} \
+  curl -L -z ${GEOIP_CACHE_DIR}/${GEOLITE2_CITY_TARBALL_FILENAME} -o ${GEOLITE2_CITY_TARBALL_FILENAME} \
     "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
 
   if [ -f "${GEOLITE2_CITY_TARBALL_FILENAME}" ]; then
